@@ -18,7 +18,7 @@ variable "subnet_target_resource_group_name" {
   default     = ""
 }
 
-variable "akscluster_name" {
+variable "aks_cluster_name" {
   description = "Default name for AKS managed cluster"
   default     = "test"
 }

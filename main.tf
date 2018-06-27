@@ -6,7 +6,7 @@ resource "azurerm_resource_group" "aks" {
 }
 
 resource "azurerm_kubernetes_cluster" "aks" {
-  name                = "${var.akscluster_name}"
+  name                = "${var.aks_cluster_name}"
   location            = "${azurerm_resource_group.aks.location}"
   resource_group_name = "${azurerm_resource_group.aks.name}"
   dns_prefix          = "${var.dns_prefix}"
@@ -22,12 +22,12 @@ resource "azurerm_kubernetes_cluster" "aks" {
   }
 
   agent_pool_profile {
-    name            = "${var.agent_pool_profile_name}"
-    count           = "${var.agent_pool_count}"
-    vm_size         = "${var.agent_pool_vm_size}"
-    os_type         = "${var.agent_pool_os_type}"
-    os_disk_size_gb = "${var.agent_pool_os}"
-    vnet_subnet_id  = "${var.agent_vnet_subnet_id}"
+    name    = "${var.agent_pool_profile_name}"
+    count   = "${var.agent_pool_count}"
+    vm_size = "${var.agent_pool_vm_size}"
+    os_type = "${var.agent_pool_os_type}"
+
+    // vnet_subnet_id  = "${var.agent_vnet_subnet_id}"
   }
 
   service_principal {
